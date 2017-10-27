@@ -4,3 +4,4 @@ test-output/*
 .classpath
 .project
 src/testSuites/XMLTemplateFile.xml
+/bin/
