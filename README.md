@@ -14,14 +14,14 @@ List of Tests:
 
 #### <a name="setup"></a>Basket Set Up / Before Test
 
-* ##### Techincal Approach:
-    Creating instances of a chrome driver because it is objectively The-Best-Browser™. Also running that exciting login test and making sure the basket is empty before we start getting creative. This involves checking if the basket is empty, and if not, emptying it and accepting the browser-alert that confirmed the task was done.
+* ##### Technical Approach:
+    Creating instances of a chrome driver because it is objectively The-Best-Browserâ„¢. Also running that exciting login test and making sure the basket is empty before we start getting creative. This involves checking if the basket is empty, and if not, emptying it and accepting the browser-alert that confirmed the task was done.
 
 #### <a name="addItemSet"></a>Add Item Set to Basket
 
 * ##### Objective:
     On thesimsresource, a download page will contain either a single item, or a set of items. This test deals with the sets specifically.
-* ##### Techincal Approach:
+* ##### Technical Approach:
     It isn't the cleanest way of getting things done, but I reeeally wanted to play with hashmaps. The test involves going to a tab on the page that lists each item in the set and creating a list of their unique IDs (I use regex to drag it out of the href). It then clicks "Add to Basket" and creates a hashmap of items in the basket. Finally a loop iterates over the list of IDs and asserts that each one exists as a key in the hashmap.
 
 #### <a name="addSingleItem"></a>Add Single Item to Basket
