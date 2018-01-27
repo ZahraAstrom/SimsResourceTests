@@ -65,4 +65,18 @@ public class BasketFlow {
 		return itemsInBsktMap;
 	}
 
+	public static List<String> bsktItemIDList (WebDriver driver) {
+		BasketPage.basketBtn(driver).click();
+		
+		List<String> basketItemIDs = new ArrayList<String>();
+		List<WebElement> itemsInBskt = BasketPage.itemsInBskt(driver);
+		
+		for (int i = 0; i < itemsInBskt.size(); i ++) {
+			Pattern findID = Pattern.compile("\\d*$", Pattern.MULTILINE);
+			Matcher iD = findID.matcher(itemsInBskt.get(i).getAttribute("id"));
+			iD.find();
+			basketItemIDs.add(iD.group());
+		}
+		return basketItemIDs;
+	}
 }
