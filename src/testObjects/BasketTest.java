@@ -33,11 +33,11 @@ public class BasketTest {
 		
 		driver.get("https://www.thesimsresource.com");
 		HomepageFlow.logIn(driver, username, password);
-		BasketFlow.emptyBskt(driver);
 	}
 	
 	@Test
 	public void addAllToBskt() {
+		BasketFlow.emptyBskt(driver);
 		String itemID = "1394698";
 		driver.get("http://www.thesimsresource.com/downloads/" + itemID);
 		List<String> itemSets = BasketFlow.itemSets(driver);
@@ -51,11 +51,24 @@ public class BasketTest {
 	
 	@Test
 	public void addOneToBskt() {
+		BasketFlow.emptyBskt(driver);
 		String itemID = "1285493";
 		driver.get("http://www.thesimsresource.com/downloads/" + itemID);
 		BasketFlow.addToBskt(driver);
 		BasketPage.basketBtn(driver).click();
 		Assert.assertTrue(BasketPage.itemInBasket(driver, itemID).isDisplayed());	
+	}
+	
+	@Test
+	public void downloadBasketContents() throws InterruptedException {
+		List<String> itemIDs = BasketFlow.bsktItemIDList(driver);
+		
+		for (int i = 0; i < itemIDs.size(); i++) {
+			driver.get("http://www.thesimsresource.com/downloads/" + itemIDs.get(i));
+			BasketPage.downloadBtn(driver).click();
+			Thread.sleep(1000);
+			
+		}
 	}
 
 	

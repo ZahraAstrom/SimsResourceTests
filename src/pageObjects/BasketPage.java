@@ -57,6 +57,10 @@ public class BasketPage {
 		return waitToClick(driver, By.cssSelector("a#showsetitems.tab-link"));
 	}
 	
+	public static WebElement downloadBtn(WebDriver driver) {
+		return waitToClick(driver, By.cssSelector("a.button.button-green.dl.okletsdothis"));
+	}
+	
 	public static List<WebElement> setItems(WebDriver driver) {
 		return new WebDriverWait(driver, 10)
 				.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.info-panel#info-setcreations a.thumb"), 1));
